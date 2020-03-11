@@ -45,7 +45,8 @@ namespace TheDeptBook
                     var newDeptor = new Deptors();
                     var vm = new AddDeptorsViewModel();
                     var dlg = new AddDeptors();
-                    //dlg.Datacontext = vm;
+
+
 
                 }));
             }
