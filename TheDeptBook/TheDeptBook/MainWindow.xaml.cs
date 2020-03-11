@@ -26,11 +26,11 @@ namespace TheDeptBook
         }
     }
 
-    private void BtnAddDeptor_Click(object sender, RoutedEventArgs e)
+    /*private void BtnAddDeptor_Click(object sender, RoutedEventArgs e)
     {
         //var vm = DataContext as MainWindowViewModel;
         //vm.AddNewDeptor();
         //DGListDepts.SelectedIndex = DGListDepts.Items.Count - 1;
         //
-    }
+    }*/
 }
