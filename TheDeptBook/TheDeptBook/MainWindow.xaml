@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="The Dept Book" Height="500" Width="800">
     <Grid>
-        
+        <DataGrid Name="DGListDepts" HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="774" Margin="10,10,0,0">
+        </DataGrid>
+        <Button Name="btnAddDeptor" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="355,423,0,0"/>
+
     </Grid>
 </Window>
