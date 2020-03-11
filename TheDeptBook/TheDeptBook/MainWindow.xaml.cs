@@ -25,4 +25,9 @@ namespace TheDeptBook
             InitializeComponent();
         }
     }
+
+    private void BtnAddDeptor_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
 }
