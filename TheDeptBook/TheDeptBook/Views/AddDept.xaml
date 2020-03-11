@@ -7,10 +7,22 @@
         mc:Ignorable="d"
         Title="AddDept" Height="500" Width="400">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="330"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0">
+            <ListBox Margin="24, 10"></ListBox>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch">
+            <Label Margin="100,10, 100, 100" Content="Sum:" FontSize="15" />
+            <TextBlock Name="SumBox" Margin="150,17,130,0" Height="19" VerticalAlignment="Top" Text="00,00 kroner"/>
+            <Label Margin="100,40,100,70" Content="Value:" FontSize="15" />
+            <TextBox Name="ValueBox" Margin="150,45,130,0" Height="19" VerticalAlignment="Top"/>
+            <Button Name="AddValue" Height="30" Width="100" Content="Add Value" Margin="150,74,142,35"></Button>
+        </Grid>
+
     </Grid>
 </Window>
