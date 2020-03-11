@@ -95,6 +95,30 @@ namespace TheDeptBook
                 SetProperty(ref currentIndex, value);
             }
         }
+
+
+
+        #endregion
+
+
+        #region AddDeptorCommand
+        private ICommand _addDeptorCommand;
+
+        public ICommand AddDeptorCommand
+        {
+            get
+            {
+                return _addDeptorCommand ?? (_addDeptorCommand = new DelegateCommand(() =>
+                {
+                    var newDeptor = new Deptors();
+                    var vm = new AddDeptorsViewModel();
+                    var dlg = new AddDeptors();
+
+
+
+                }));
+            }
+        }
         #endregion
     }
 }
