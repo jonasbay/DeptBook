@@ -24,6 +24,7 @@ using Microsoft.Win32;
 using Prism.Commands;
 using Prism.Mvvm;
 using Path = System.IO.Path;
+using TheDeptBook.ViewModels;
 
 namespace TheDeptBook
 {
@@ -42,9 +43,9 @@ namespace TheDeptBook
                 return _addDeptorCommand ?? (_addDeptorCommand = new DelegateCommand(() =>
                 {
                     var newDeptor = new Deptors();
-                    var vm = new AddDeptorsViewModel("Add new deptor", newDeptor);
+                    var vm = new AddDeptorsViewModel();
                     var dlg = new AddDeptors();
-                    dlg.Datacontext = vm;
+                    //dlg.Datacontext = vm;
 
                 }));
             }

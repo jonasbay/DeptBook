@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TheDeptBook.ViewsModels
+namespace TheDeptBook.ViewModels
 {
     /// <summary>
     /// Interaction logic for AddDeptors.xaml
