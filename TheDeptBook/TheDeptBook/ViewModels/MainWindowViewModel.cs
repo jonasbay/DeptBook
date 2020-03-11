@@ -32,6 +32,17 @@ namespace TheDeptBook
     public partial class MainWindowViewModel : BindableBase
     {
 
+        ObservableCollection<Deptors> deptors;
+
+        public MainWindowViewModel()
+        {
+            deptors = new ObservableCollection<Deptors>
+            {
+                new Deptors("Jonas Bay", 124.56),
+                new Deptors("Alexander Smith", 194.51)
+            };
+            CurrentDeptor = deptors[0];
+        }
 
 
         #region AddDeptorCommand
@@ -49,6 +60,39 @@ namespace TheDeptBook
                     //dlg.Datacontext = vm;
 
                 }));
+            }
+        }
+
+        Deptors currentDeptor = null;
+
+        public Deptors CurrentDeptor
+        {
+            get { return currentDeptor; }
+            set
+            {
+                SetProperty(ref currentDeptor, value);
+
+                /*if (currentAgent != value)
+                {
+                    currentAgent = value;
+
+                    //NotifyPropertyChanged();
+                }*/
+            }
+        }
+
+        public ObservableCollection<Deptors> Deptors
+        {
+            get { return deptors; }
+            set { SetProperty(ref deptors, value); }
+        }
+        int currentIndex = -1;
+        public int CurrentIndex
+        {
+            get { return currentIndex; }
+            set
+            {
+                SetProperty(ref currentIndex, value);
             }
         }
         #endregion
