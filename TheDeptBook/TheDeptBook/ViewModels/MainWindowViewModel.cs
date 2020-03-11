@@ -25,14 +25,12 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Path = System.IO.Path;
 using TheDeptBook.ViewModels;
+using TheDeptBook.Views;
 
 namespace TheDeptBook
 {
     public partial class MainWindowViewModel : BindableBase
     {
-
-
-
         #region AddDeptorCommand
         private ICommand _addDeptorCommand;
 
