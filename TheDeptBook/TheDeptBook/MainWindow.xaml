@@ -10,7 +10,10 @@
         <DataGrid Name="DGListDepts" 
                   HorizontalAlignment="Left" Height="390" 
                   VerticalAlignment="Top" Width="774" Margin="10,10,0,0"
-                  ItemsSource="{Binding Path=Deptors}">
+                  ItemsSource="{Binding Path=Deptors}"
+                  SelectedItem="{Binding Path=CurrentDeptor}"
+                  IsSynchronizedWithCurrentItem="True"
+                  SelectedIndex="{Binding Path=CurrentIndex}">
         </DataGrid>
         <Button Name="btnAddDeptor" Content="Add" 
                 HorizontalAlignment="Left" VerticalAlignment="Top" 
