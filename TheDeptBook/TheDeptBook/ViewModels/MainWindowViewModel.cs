@@ -25,53 +25,13 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Path = System.IO.Path;
 using TheDeptBook.ViewModels;
+using TheDeptBook.Views;
 
 namespace TheDeptBook
 {
     public partial class MainWindowViewModel : BindableBase
     {
-        ObservableCollection<Deptors> deptors;
 
-        public MainWindowViewModel()
-        {
-            deptors = new ObservableCollection<Deptors>
-            {
-                new Deptors("Jonas Bay", 800.15),
-                new Deptors("Alexander Smith", 152.54)
-            };
-            CurrentDeptor = deptors[0];
-        }
-
-        #region properties
-        Deptors currentDeptor = null;
-
-        public Deptors CurrentDeptor
-        {
-            get { return currentDeptor; }
-            set
-            {
-                SetProperty(ref currentDeptor, value);
-            }
-        }
-
-        public ObservableCollection<Deptors> Deptors
-        {
-            get { return deptors; }
-            set { SetProperty(ref deptors, value); }
-        }
-        int currentIndex = -1;
-        public int CurrentIndex
-        {
-            get { return currentIndex; }
-            set
-            {
-                SetProperty(ref currentIndex, value);
-            }
-        }
-
-
-
-        #endregion
 
 
         #region AddDeptorCommand
