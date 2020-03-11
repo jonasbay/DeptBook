@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDeptBook.ViewsModels"
         mc:Ignorable="d"
-        Title="AddDeptors" Height="450" Width="800">
+        Title="AddDeptors" Height="500" Width="400">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Name:" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" x:Name="AddDeptorNameTextBox" Text="Sample name" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Initial Value:" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" x:Name="AddDeptorInitValueTextBox" Text="1000.00 kr" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="Save" Content="Save"/>
+            <Button Grid.Column="1" x:Name="Cancel" Content="Cancel"/>
+        </Grid>
     </Grid>
 </Window>
