@@ -25,6 +25,7 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Path = System.IO.Path;
 using TheDeptBook.ViewModels;
+using TheDeptBook.Views;
 
 namespace TheDeptBook
 {
@@ -73,7 +74,6 @@ namespace TheDeptBook
 
         #endregion
 
-
         #region AddDeptorCommand
         private ICommand _addDeptorCommand;
 
@@ -86,7 +86,7 @@ namespace TheDeptBook
                     var newDeptor = new Deptors();
                     var vm = new AddDeptorsViewModel();
                     var dlg = new AddDeptors();
-
+                    dlg.ShowDialog();
 
 
                 }));
