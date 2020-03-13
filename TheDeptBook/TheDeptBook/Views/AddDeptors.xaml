@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDeptBook.Views"
         mc:Ignorable="d"
-        Title="AddDeptors" Height="166" Width="400">
+        Title="Add Deptor" Height="150" Width="280"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
@@ -18,24 +19,24 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Content="Name:" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" x:Name="AddDeptorNameTextBox" Text="Sample name" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Content="Name:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" x:Name="AddDeptorNameTextBox" Margin="0,0,30,0" Text="Sample name" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Initial Value:" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" x:Name="AddDeptorInitValueTextBox" Text="1000.00 kr" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Content="Initial Value:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" x:Name="AddDeptorInitValueTextBox" Margin="0,0,30,0" Text="1000.00 kr" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="Save" Content="Save"/>
-            <Button Grid.Column="1" x:Name="Cancel" Content="Cancel"/>
+            <Button Grid.Column="0" x:Name="Save" Content="Save" Width="75" Height="25"/>
+            <Button Grid.Column="1" x:Name="Cancel" Content="Cancel" Width="75" Height="25"/>
         </Grid>
     </Grid>
 </Window>
