@@ -12,8 +12,8 @@ namespace TheDeptBook
         string name;
         double initValue;
 
-        private ObservableCollection<Deptors> deptList;
-        public Deptors() { }
+        //private ObservableCollection<Deptors> deptList;
+        public Deptors() {}
 
         public Deptors(string dName, double dInitValue)
         {
