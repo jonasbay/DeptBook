@@ -9,6 +9,21 @@ namespace TheDeptBook.ViewModels
 {
     class AddDeptViewModel : BindableBase
     {
+        public AddDeptViewModel(Deptors deptor)
+        {
+            CurrentDeptor = deptor;
+        }
+
+        Deptors currentDeptor;
+
+        public Deptors CurrentDeptor
+        {
+            get { return currentDeptor; }
+            set
+            {
+                SetProperty(ref currentDeptor, value);
+            }
+        }
 
     }
 }
