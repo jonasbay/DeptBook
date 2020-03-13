@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDeptBook"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:interactivity="http://prismlibrary.com/"
         xmlns:i1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
@@ -23,9 +23,9 @@
                   VerticalAlignment="Top" Width="774" Margin="10,10,0,0"
                   >
             <i:Interaction.Triggers>
-                <i1:EventTrigger EventName="MouseDoubleClick">
-                    <interactivity:InvokeCommandAction Command="{Binding AddDeptCommand}"/>
-                </i1:EventTrigger>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding AddDeptCommand}"/>
+                </i:EventTrigger>
             </i:Interaction.Triggers>
         </DataGrid>
         <Button Name="btnAddDeptor" ToolTip="Add new deptor to the list" Content="Add" 
