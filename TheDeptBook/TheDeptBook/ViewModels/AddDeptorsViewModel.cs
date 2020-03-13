@@ -10,6 +10,5 @@ namespace TheDeptBook.ViewModels
 {
     class AddDeptorsViewModel : BindableBase
     {
-
     }
 }
