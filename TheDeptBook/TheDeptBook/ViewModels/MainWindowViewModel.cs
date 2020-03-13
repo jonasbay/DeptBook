@@ -55,13 +55,6 @@ namespace TheDeptBook
             set
             {
                 SetProperty(ref currentDeptor, value);
-
-                /*if (currentAgent != value)
-                {
-                    currentAgent = value;
-
-                    //NotifyPropertyChanged();
-                }*/
             }
         }
 
@@ -102,6 +95,29 @@ namespace TheDeptBook
                         Deptors.Add(newDeptor);
                         CurrentDeptor = newDeptor;
                     }
+                }));
+            }
+        }
+        #endregion
+
+        #region AddDeptCommand
+        ICommand _addDeptCommand;
+        public ICommand AddDeptCommand
+        {
+            get
+            {
+                return _addDeptCommand ?? (_addDeptCommand = new DelegateCommand(() =>
+                {
+                    var tempDeptor = new Deptors();
+                    var vm = new AddDeptViewModel(tempDeptor);
+                    var dlg = new AddDept();
+                    dlg.ShowDialog();
+                    //dlg.DataContext = vm;
+                    //if (dlg.ShowDialog() == true)
+                    //{
+                    //    Deptors.Add(newDeptor);
+                    //    CurrentDeptor = newDeptor;
+                    //}
                 }));
             }
         }
