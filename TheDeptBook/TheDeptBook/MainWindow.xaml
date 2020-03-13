@@ -16,7 +16,7 @@
                   VerticalAlignment="Top" Width="774" Margin="10,10,0,0"
                   >
         </DataGrid>
-        <Button Name="btnAddDeptor" Content="Add" 
+        <Button Name="btnAddDeptor" ToolTip="Add new deptor to the list" Content="Add" 
                 HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Width="75" Margin="355,423,0,0"
                 Command="{Binding Path=AddDeptorCommand}"/>
