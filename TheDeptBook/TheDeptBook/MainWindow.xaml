@@ -22,6 +22,7 @@
                   HorizontalAlignment="Left" Height="390" 
                   VerticalAlignment="Top" Width="774" Margin="10,10,0,0"
                   >
+
             <i:Interaction.Triggers>
                 <i1:EventTrigger EventName="MouseDoubleClick">
                     <interactivity:InvokeCommandAction Command="{Binding AddDeptCommand}"/>
