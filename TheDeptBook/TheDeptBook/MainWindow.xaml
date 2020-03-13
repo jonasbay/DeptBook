@@ -28,7 +28,7 @@
                 </i1:EventTrigger>
             </i:Interaction.Triggers>
         </DataGrid>
-        <Button Name="btnAddDeptor" Content="Add" 
+        <Button Name="btnAddDeptor" ToolTip="Add new deptor to the list" Content="Add" 
                 HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Width="75" Margin="355,423,0,0"
                 Command="{Binding Path=AddDeptorCommand}"/>
