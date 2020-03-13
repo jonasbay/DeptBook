@@ -85,8 +85,7 @@ namespace TheDeptBook
         #endregion
 
         #region AddDeptorCommand
-        private ICommand _addDeptorCommand;
-
+        ICommand _addDeptorCommand;
         public ICommand AddDeptorCommand
         {
             get
@@ -94,11 +93,14 @@ namespace TheDeptBook
                 return _addDeptorCommand ?? (_addDeptorCommand = new DelegateCommand(() =>
                 {
                     var newDeptor = new Deptors();
-                    var vm = new AddDeptorsViewModel();
+                    var vm = new AddDeptorsViewModel(newDeptor);
                     var dlg = new AddDeptors();
-                    dlg.ShowDialog();
-
-
+                    dlg.DataContext = vm;
+                    if (dlg.ShowDialog() == true)
+                    {
+                        Deptors.Add(newDeptor);
+                        CurrentDeptor = newDeptor;
+                    }
                 }));
             }
         }
