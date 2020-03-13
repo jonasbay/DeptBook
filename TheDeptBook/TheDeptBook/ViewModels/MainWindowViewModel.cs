@@ -95,12 +95,13 @@ namespace TheDeptBook
                     var newDeptor = new Deptors();
                     var vm = new AddDeptorsViewModel(newDeptor);
                     var dlg = new AddDeptors();
-                    dlg.DataContext = vm;
-                    if (dlg.ShowDialog() == true)
-                    {
-                        Deptors.Add(newDeptor);
-                        CurrentDeptor = newDeptor;
-                    }
+                    dlg.ShowDialog();
+                    //dlg.DataContext = vm;
+                    //if (dlg.ShowDialog() == true)
+                    //{
+                    //    Deptors.Add(newDeptor);
+                    //    CurrentDeptor = newDeptor;
+                    //}
                 }));
             }
         }
