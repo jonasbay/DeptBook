@@ -45,23 +45,7 @@ namespace TheDeptBook
         }
 
 
-        #region AddDeptorCommand
-        private ICommand _addDeptorCommand;
-
-        public ICommand AddDeptorCommand
-        {
-            get
-            {
-                return _addDeptorCommand ?? (_addDeptorCommand = new DelegateCommand(() =>
-                {
-                    var newDeptor = new Deptors();
-                    var vm = new AddDeptorsViewModel();
-                    var dlg = new AddDeptors();
-                    //dlg.Datacontext = vm;
-
-                }));
-            }
-        }
+        #region Properties
 
         Deptors currentDeptor = null;
 
@@ -120,5 +104,6 @@ namespace TheDeptBook
             }
         }
         #endregion
+
     }
 }
