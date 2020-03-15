@@ -52,7 +52,7 @@ namespace TheDeptBook.ViewModels
         {
             get
             {
-                CurrentDeptor.Date = DateTime.Now.ToString("dd/mm/yyyy");
+                CurrentDeptor.Date = DateTime.Now.ToString("dd/MM/yyyy");
                 return _saveBtnCommand ?? (_saveBtnCommand = new DelegateCommand(
                     SaveBtnCommand_Execute, SaveBtnCommand_CanExecute)
                     .ObservesProperty(() => CurrentDeptor.Name)
