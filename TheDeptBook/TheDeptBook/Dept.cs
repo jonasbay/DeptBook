@@ -3,28 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prism.Mvvm;
 
 namespace TheDeptBook
 {
-    class Dept
+    public class Dept : BindableBase
     {
-        private string date;
-        private double value;
+        private string date_;
+        private double value_;
 
         public Dept(string dDate, double dValue)
         {
-            date = dDate;
-            value = dValue;
+            date_ = dDate;
+            value_ = dValue;
         }
 
         public string Date
         {
-            get { return date; }
+            get { return date_; }
+            set { SetProperty(ref date_, value); }
+
         }
 
         public double Value
         {
-            get { return value; }
+            get { return value_; }
+            set { SetProperty(ref value_, value); }
         }
     }
 }

@@ -13,24 +13,25 @@ namespace TheDeptBook
     public class Deptor : BindableBase
     {
         string name;
-        double initValue;
+        double sum;
         string date;
-        private List<Dept> ListOfAllDepts;
+
 
         public Deptor() {}
 
         public Deptor(string dName, double dInitValue, string dDate)
         {
-            ListOfAllDepts = new List<Dept>();
+            ListOfAllDepts = new ObservableCollection<Dept>();
             name = dName;
-            initValue = dInitValue;
+            sum = dInitValue;
             date = dDate;
-            ListOfAllDepts.Add(new Dept(dDate, initValue));
+            ListOfAllDepts.Add(new Dept(dDate, dInitValue));
         }
 
         public void AddDeptToPerson(string dDate, double dValue)
         {
             ListOfAllDepts.Add(new Dept(dDate, dValue));
+            sum += dValue;
         }
 
         public Deptor Clone()
@@ -46,14 +47,21 @@ namespace TheDeptBook
 
         public double InitValue
         {
-            get { return initValue; }
-            set { SetProperty(ref initValue, value); }
+            get { return sum; }
+            set { SetProperty(ref sum, value); }
         }
 
         public string Date
         {
             get { return date; }
             set { SetProperty(ref date, value); }
+        }
+        
+        ObservableCollection<Dept> ListOfAllDepts;
+        public ObservableCollection<Dept> ListOfDepts
+        {
+            get { return ListOfAllDepts; }
+            set { SetProperty(ref ListOfAllDepts, value); }
         }
     }
 }

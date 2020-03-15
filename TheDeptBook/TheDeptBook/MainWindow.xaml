@@ -9,15 +9,30 @@
         xmlns:i1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
         xmlns:viewModels="clr-namespace:TheDeptBook.ViewModels"
-        Title="The Dept Book" Height="500" Width="800"
+        Title="The Debt Book" Height="500" Width="800"
         MinHeight="300" MinWidth="200">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control+Shift" Key="X" Command="{Binding CloseProgramCommand}"/>
+        <KeyBinding Modifiers="Control" Key="E" Command="{Binding AddDeptCommand}"/>
+        <KeyBinding Modifiers="Control" Key="A" Command="{Binding AddDeptorCommand}" />
+        <KeyBinding Modifiers="Control" Key="D" Command="{Binding DeleteDeptorCommand}" />
+    </Window.InputBindings>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Name="MainMenu">
             <MenuItem Header="_File">
-                <MenuItem Header="E_xit" Command="{Binding ClosingProgram}"/>
+                <MenuItem Header="E_xit" Command="{Binding CloseProgramCommand}"
+                          InputGestureText="ctrl+shift+X"/>
+            </MenuItem>
+            <MenuItem Header="_Debtor">
+                <MenuItem Header="_Add New Debtor" Command="{Binding AddDeptorCommand}"
+                          InputGestureText="ctrl+A"/>
+                <MenuItem Header="_Edit Debtor" Command="{Binding AddDeptCommand}"
+                          InputGestureText="ctrl+E"/>
+                <MenuItem Header="_Delete" Command="{Binding DeleteDeptorCommand}"
+                          InputGestureText="ctrl+D"/>
             </MenuItem>
         </Menu>
         <Grid>
@@ -25,7 +40,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
-        <DataGrid Name="DGListDepts" 
+            <DataGrid Name="DGListDepts" 
                   Grid.Row="0"
                   ItemsSource="{Binding Path=Deptors}"
                   SelectedItem="{Binding Path=CurrentDeptor}"
