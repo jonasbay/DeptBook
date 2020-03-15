@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <ListBox Margin="20"></ListBox>
+            <DataGrid Margin="20"/>
         </Grid>
 
         <Grid Grid.Row="1" VerticalAlignment="Stretch">

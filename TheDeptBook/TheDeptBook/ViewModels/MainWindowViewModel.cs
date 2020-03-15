@@ -32,14 +32,14 @@ namespace TheDeptBook
     public partial class MainWindowViewModel : BindableBase
     {
 
-        ObservableCollection<Deptors> deptors;
+        ObservableCollection<Deptor> deptors;
 
         public MainWindowViewModel()
         {
-            deptors = new ObservableCollection<Deptors>
+            deptors = new ObservableCollection<Deptor>
             {
-                new Deptors("Jonas Bay", 124.56),
-                new Deptors("Alexander Smith", 194.51)
+                new Deptor("Jonas Bay", 124.56, "20-5-2002"),
+                new Deptor("Alexander Smith", 194.51, "17-01-2018")
             };
             CurrentDeptor = deptors[0];
         }
@@ -47,9 +47,9 @@ namespace TheDeptBook
 
         #region Properties
 
-        Deptors currentDeptor = null;
+        Deptor currentDeptor = null;
 
-        public Deptors CurrentDeptor
+        public Deptor CurrentDeptor
         {
             get { return currentDeptor; }
             set
@@ -58,7 +58,7 @@ namespace TheDeptBook
             }
         }
 
-        public ObservableCollection<Deptors> Deptors
+        public ObservableCollection<Deptor> Deptors
         {
             get { return deptors; }
             set { SetProperty(ref deptors, value); }
@@ -85,7 +85,7 @@ namespace TheDeptBook
             {
                 return _addDeptorCommand ?? (_addDeptorCommand = new DelegateCommand(() =>
                 {
-                    var newDeptor = new Deptors();
+                    var newDeptor = new Deptor();
                     var vm = new AddDeptorsViewModel(newDeptor);
                     var dlg = new AddDeptors();
                     dlg.ShowDialog();
@@ -108,7 +108,7 @@ namespace TheDeptBook
             {
                 return _addDeptCommand ?? (_addDeptCommand = new DelegateCommand(() =>
                 {
-                    var tempDeptor = new Deptors();
+                    var tempDeptor = new Deptor();
                     var vm = new AddDeptViewModel(tempDeptor);
                     var dlg = new AddDept();
                     dlg.ShowDialog();

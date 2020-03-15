@@ -10,14 +10,14 @@ namespace TheDeptBook.ViewModels
 {
     class AddDeptorsViewModel : BindableBase
     {
-        public AddDeptorsViewModel(Deptors deptor)
+        public AddDeptorsViewModel(Deptor deptor)
         {
             CurrentDeptor = deptor;
         }
 
-        Deptors currentDeptor;
+        Deptor currentDeptor;
 
-        public Deptors CurrentDeptor
+        public Deptor CurrentDeptor
         {
             get { return currentDeptor; }
             set

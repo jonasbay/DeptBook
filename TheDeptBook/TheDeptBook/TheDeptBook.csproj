@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dept.cs" />
     <Compile Include="Views\AddDeptors.xaml.cs">
       <DependentUpon>AddDeptors.xaml</DependentUpon>
     </Compile>
