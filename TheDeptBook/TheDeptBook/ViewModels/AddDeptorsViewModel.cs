@@ -8,8 +8,13 @@ using Prism.Mvvm;
 
 namespace TheDeptBook.ViewModels
 {
-    class AddDeptorsViewModel : BindableBase
+    public class AddDeptorsViewModel : BindableBase
     {
+        public AddDeptorsViewModel()
+        {
+
+        }
+
         public AddDeptorsViewModel(Deptor deptor)
         {
             CurrentDeptor = deptor;
@@ -25,6 +30,5 @@ namespace TheDeptBook.ViewModels
                 SetProperty(ref currentDeptor, value);
             }
         }
-
     }
 }
