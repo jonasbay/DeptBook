@@ -45,13 +45,18 @@
                   ItemsSource="{Binding Path=Deptors}"
                   SelectedItem="{Binding Path=CurrentDeptor}"
                   IsSynchronizedWithCurrentItem="True"
+                  AutoGenerateColumns="False"
                   SelectedIndex="{Binding Path=CurrentIndex}"
                   HorizontalAlignment="Stretch"  
                   VerticalAlignment="Stretch" 
                   Margin="20" SelectionChanged="DGListDepts_SelectionChanged">
-            
-            
-            <i:Interaction.Triggers>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
+                    <DataGridTextColumn Header="Debt Value (DKK)" Binding="{Binding Path=InitValue}"/>
+                    <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"/>
+                </DataGrid.Columns>
+
+                <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <i:InvokeCommandAction Command="{Binding AddDeptCommand}"/>
                 </i:EventTrigger>
