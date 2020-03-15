@@ -25,8 +25,25 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-               
-        
+
+        <!--<DataGridTemplateColumn x:Key="converter">
+            <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition>
+                                <ColumnDefinition.Style>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="{Binding Path=InitValue, Converter={StaticResource ValueToColorConverter}}"/>
+                                    </Style>
+                                </ColumnDefinition.Style>
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </DataTemplate>
+            </DataGridTemplateColumn.CellTemplate>
+        </DataGridTemplateColumn>-->
+
         <!--Datagrid style--><!--
         <DataGrid x:Key="deptorsGridListTemplate">
             <DataGrid.Columns>

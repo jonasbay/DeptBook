@@ -97,6 +97,17 @@ namespace TheDeptBook
                 }));
             }
         }
+
+        private bool dirty = false;
+        public bool Dirty
+        {
+            get { return dirty; }
+            set
+            {
+                SetProperty(ref dirty, value);
+                RaisePropertyChanged("Title");
+            }
+        }
         #endregion
 
         #region AddDeptCommand
@@ -119,6 +130,77 @@ namespace TheDeptBook
                     //}
                 }));
             }
+        }
+        #endregion
+
+        #region CloseProgramCommand
+        ICommand _closeProgramCommand;
+        public ICommand CloseProgramCommand
+        {
+            get
+            {
+                return _closeProgramCommand ?? (_closeProgramCommand = new DelegateCommand(() =>
+                {
+                    Application.Current.MainWindow.Close();
+                }));
+            }
+        }
+        #endregion
+
+        #region ClosingCommand
+        /*ICommand _closingCommand;
+        public ICommand ClosingCommand
+        {
+            get
+            {
+                return _closingCommand ?? (_closingCommand = new
+                           DelegateCommand<CancelEventArgs>(ClosingCommand_Execute));
+            }
+        }
+
+        bool regret = true;
+        private void ClosingCommand_Execute(CancelEventArgs arg)
+        {
+            if (regret)
+                arg.Cancel = UserRegrets();
+        }
+
+        private bool UserRegrets()
+        {
+            regret = false;
+            MessageBoxResult res = MessageBox.Show("Are you sure you want to exit?",
+                "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (res == MessageBoxResult.No)
+            {
+                regret = true;
+            }
+            return regret;
+        }*/
+        #endregion
+
+        #region DeleteDeptorCommand
+        ICommand _deleteCommand;
+        public ICommand DeleteDeptorCommand => _deleteCommand ?? (_deleteCommand =
+            new DelegateCommand(DeleteDeptor, DeleteDeptor_CanExecute)
+                    .ObservesProperty(() => CurrentIndex));
+
+        private void DeleteDeptor()
+        {
+            MessageBoxResult res = MessageBox.Show("Are you sure you want to delete debtor " + CurrentDeptor.Name +
+                "?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (res == MessageBoxResult.Yes)
+            {
+                Deptors.Remove(CurrentDeptor);
+                Dirty = true;
+            }
+        }
+
+        private bool DeleteDeptor_CanExecute()
+        {
+            if (Deptors.Count > 0 && CurrentIndex >= 0)
+                return true;
+            else
+                return false;
         }
         #endregion
     }
