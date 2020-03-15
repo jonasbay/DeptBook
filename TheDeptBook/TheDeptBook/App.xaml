@@ -4,6 +4,8 @@
              xmlns:theDeptBook="clr-namespace:TheDeptBook"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <theDeptBook:DeptorValueColorConverter x:Key="ValueToColorConverter" />
+        <!--Button style-->
         <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
             <Style.Setters>
                 <Setter Property="Height" Value="30"/>
