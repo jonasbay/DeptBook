@@ -59,7 +59,7 @@
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <Button Name="AddValue" Width="75" Height="25" Content="Add Value"/>
+                    <Button Name="AddValue" Width="75" Height="25" Content="Add Value" Style="{StaticResource ResourceKey=ButtonStyle}"/>
                 </Grid>
 
             </Grid>

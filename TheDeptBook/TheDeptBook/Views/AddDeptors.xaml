@@ -20,7 +20,11 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Content="Name:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" x:Name="AddDeptorNameTextBox" Margin="0,0,30,0" Text="Sample name" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     x:Name="AddDeptorNameTextBox"
+                     Margin="0,0,30,0"
+                     Text="{Binding Path=CurrentDeptor.Name}"
+                     VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -28,15 +32,26 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Initial Value:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" x:Name="AddDeptorInitValueTextBox" Margin="0,0,30,0" Text="1000.00 kr" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     x:Name="AddDeptorInitValueTextBox"
+                     Margin="0,0,30,0"
+                     Text="{Binding Path=CurrentDeptor.InitValue}"
+                     VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="Save" Content="Save" Width="75" Height="25"/>
-            <Button Grid.Column="1" x:Name="Cancel" Content="Cancel" Width="75" Height="25"/>
+            <Button Grid.Column="0" 
+                    x:Name="Save"
+                    Content="Save"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Command="{Binding Path=SaveBtnCommand}"/>
+            <Button Grid.Column="1"
+                    x:Name="Cancel"
+                    Content="Cancel"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"/>
         </Grid>
     </Grid>
 </Window>

@@ -88,7 +88,6 @@ namespace TheDeptBook
                     var newDeptor = new Deptor();
                     var vm = new AddDeptorsViewModel(newDeptor);
                     var dlg = new AddDeptors();
-                    dlg.ShowDialog();
                     dlg.DataContext = vm;
                     if (dlg.ShowDialog() == true)
                     {
@@ -122,6 +121,5 @@ namespace TheDeptBook
             }
         }
         #endregion
-
     }
 }
