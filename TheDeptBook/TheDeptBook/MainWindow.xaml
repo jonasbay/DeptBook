@@ -51,9 +51,9 @@
                   VerticalAlignment="Stretch" 
                   Margin="20" SelectionChanged="DGListDepts_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
-                    <DataGridTextColumn Header="Debt Value (DKK)" Binding="{Binding Path=InitValue}"/>
-                    <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"/>
+                    <DataGridTextColumn Header="Name" Width="245" Binding="{Binding Path=Name}"/>
+                    <DataGridTextColumn Header="Debt Value (DKK)" Width="120" Binding="{Binding Path=Sum}"/>
+                    <DataGridTextColumn Header="Date" Width="80" Binding="{Binding Path=Date}"/>
                 </DataGrid.Columns>
 
                 <i:Interaction.Triggers>

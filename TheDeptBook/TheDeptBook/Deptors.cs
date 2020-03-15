@@ -15,6 +15,7 @@ namespace TheDeptBook
         string name;
         double sum;
         string date;
+        double newValue;
 
 
         public Deptor() {}
@@ -31,12 +32,18 @@ namespace TheDeptBook
         public void AddDeptToPerson(string dDate, double dValue)
         {
             ListOfAllDepts.Add(new Dept(dDate, dValue));
-            sum += dValue;
+            //sum += dValue; // Skal udkommenteres, hvis den er i deletegateCommand for ADD
         }
 
         public Deptor Clone()
         {
             return this.MemberwiseClone() as Deptor;
+        }
+
+        public double Sum
+        {
+            get { return sum; }
+            set { SetProperty(ref sum, value);  }
         }
 
         public string Name
@@ -49,6 +56,12 @@ namespace TheDeptBook
         {
             get { return sum; }
             set { SetProperty(ref sum, value); }
+        }
+
+        public double newDeptValue
+        {
+            get { return newValue; }
+            set { SetProperty(ref newValue, value); }
         }
 
         public string Date

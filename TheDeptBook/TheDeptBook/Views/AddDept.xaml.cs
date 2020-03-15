@@ -23,5 +23,9 @@ namespace TheDeptBook.Views
         {
             InitializeComponent();
         }
+
+        private void AddValue_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }
