@@ -9,29 +9,40 @@
         xmlns:i1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
         xmlns:viewModels="clr-namespace:TheDeptBook.ViewModels"
-        Title="The Dept Book" Height="500" Width="800">
-        <Window.DataContext>
-            <local:MainWindowViewModel/>
-        </Window.DataContext>
+        Title="The Dept Book" Height="500" Width="800"
+        MinHeight="300" MinWidth="200">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
         <DataGrid Name="DGListDepts" 
+                  Grid.Row="0"
                   ItemsSource="{Binding Path=Deptors}"
                   SelectedItem="{Binding Path=CurrentDeptor}"
                   IsSynchronizedWithCurrentItem="True"
                   SelectedIndex="{Binding Path=CurrentIndex}"
-                  HorizontalAlignment="Left" Height="390" 
-                  VerticalAlignment="Top" Width="774" Margin="10,10,0,0"
-                  >
-
+                  HorizontalAlignment="Stretch"  
+                  VerticalAlignment="Stretch" 
+                  Margin="20">
+            
+            
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <i:InvokeCommandAction Command="{Binding AddDeptCommand}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
+
         </DataGrid>
         <Button Name="btnAddDeptor" ToolTip="Add new deptor to the list" Content="Add" 
-                HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Width="75" Margin="355,423,0,0"
-                Command="{Binding Path=AddDeptorCommand}"/>
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                MinWidth="75" 
+                Grid.Row="1"
+                Command="{Binding Path=AddDeptorCommand}"
+                Style="{StaticResource ResourceKey=ButtonStyle}"/>
+        
     </Grid>
 </Window>
