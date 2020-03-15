@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Prism.Mvvm;
+using Prism.Commands;
 
 
 namespace TheDeptBook.ViewModels
@@ -26,5 +28,17 @@ namespace TheDeptBook.ViewModels
             }
         }
 
+        ICommand _addNewDeptorCommand;
+
+        public ICommand AddNewDeptorCommand
+        {
+            get
+            {
+                return _addNewDeptorCommand ?? (_addNewDeptorCommand = new DelegateCommand(() =>
+                {
+                
+                }));
+            }
+        }
     }
 }
