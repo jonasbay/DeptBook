@@ -38,7 +38,7 @@ namespace TheDeptBook
         {
             deptors = new ObservableCollection<Deptor>
             {
-                new Deptor("Jonas Bay", 124.56, "20-5-2002"),
+                new Deptor("Jonas Bay", -152, "20-5-2002"),
                 new Deptor("Alexander Smith", 194.51, "17-01-2018")
             };
             CurrentDeptor = deptors[0];
