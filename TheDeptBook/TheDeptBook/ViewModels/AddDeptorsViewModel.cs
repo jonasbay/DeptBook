@@ -28,17 +28,40 @@ namespace TheDeptBook.ViewModels
             }
         }
 
-        ICommand _addNewDeptorCommand;
-
-        public ICommand AddNewDeptorCommand
+        public bool IsValid
         {
             get
             {
-                return _addNewDeptorCommand ?? (_addNewDeptorCommand = new DelegateCommand(() =>
-                {
-                
-                }));
+                bool isValid = true;
+                if (string.IsNullOrWhiteSpace(CurrentDeptor.Name))
+                    isValid = false;
+                if (double.IsNaN(CurrentDeptor.InitValue))
+                    isValid = false;
+                return isValid;
             }
+        }
+
+        ICommand _saveBtnCommand;
+
+        public ICommand SaveBtnCommand
+        {
+            get
+            {
+                return _saveBtnCommand ?? (_saveBtnCommand = new DelegateCommand(
+                    SaveBtnCommand_Execute, SaveBtnCommand_CanExecute)
+                    .ObservesProperty(() => CurrentDeptor.Name)
+                    .ObservesProperty(() => CurrentDeptor.InitValue));
+            }
+        }
+
+        private void SaveBtnCommand_Execute()
+        {
+            //Noting to be done
+        }
+
+        private bool SaveBtnCommand_CanExecute()
+        {
+            return IsValid;
         }
     }
 }
