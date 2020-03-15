@@ -9,7 +9,7 @@
         xmlns:i1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
         xmlns:viewModels="clr-namespace:TheDeptBook.ViewModels"
-        Title="The Debt Book" Height="500" Width="800"
+        Title="The Debt Book" Height="500" Width="500"
         MinHeight="300" MinWidth="200">
     <Window.DataContext>
         <local:MainWindowViewModel/>
