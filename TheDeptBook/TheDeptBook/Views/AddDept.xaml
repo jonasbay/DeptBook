@@ -3,9 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TheDeptBook"
+        xmlns:local="clr-namespace:TheDeptBook.ViewModels"
+        xmlns:theDeptBook="clr-namespace:TheDeptBook"
         mc:Ignorable="d"
         Title="AddDept" Height="500" Width="400" MinHeight="500" MinWidth="400">
+
+    <Window.DataContext>
+        <local:AddDeptViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -13,7 +18,13 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <DataGrid Margin="20"/>
+            <DataGrid Margin="20" Name="L" ItemsSource="{Binding Path=CurrentDeptor.ListOfDepts}" 
+                      AutoGenerateColumns="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Date}"/>
+                    <DataGridTextColumn Binding="{Binding Path=Value}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
 
         <Grid Grid.Row="1" VerticalAlignment="Stretch">
@@ -59,7 +70,7 @@
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <Button Name="AddValue" Width="75" Height="25" Content="Add Value" Style="{StaticResource ResourceKey=ButtonStyle}"/>
+                    <Button Name="AddValue" Content="Add Value" Style="{StaticResource ResourceKey=ButtonStyle}"/>
                 </Grid>
 
             </Grid>

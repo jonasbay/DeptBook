@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,8 +8,13 @@ using Prism.Mvvm;
 
 namespace TheDeptBook.ViewModels
 {
-    class AddDeptViewModel : BindableBase
+    public class AddDeptViewModel : BindableBase
     {
+        public AddDeptViewModel()
+        {
+
+        }
+
         public AddDeptViewModel(Deptor deptor)
         {
             CurrentDeptor = deptor;

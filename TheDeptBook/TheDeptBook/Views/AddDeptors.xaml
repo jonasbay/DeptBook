@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TheDeptBook.Views"
+        xmlns:local="clr-namespace:TheDeptBook.ViewModels"
         mc:Ignorable="d"
         Title="Add Deptor" Height="150" Width="280"
         ResizeMode="NoResize">
@@ -46,11 +46,13 @@
             <Button Grid.Column="0" 
                     x:Name="Save"
                     Content="Save"
+                    Click="BtnSave_Click"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
                     Command="{Binding Path=SaveBtnCommand}"/>
             <Button Grid.Column="1"
                     x:Name="Cancel"
                     Content="Cancel"
+                    Click="BtnCancel_Click"
                     Style="{StaticResource ResourceKey=ButtonStyle}"/>
         </Grid>
     </Grid>

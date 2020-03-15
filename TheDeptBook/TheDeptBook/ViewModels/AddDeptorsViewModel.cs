@@ -10,8 +10,13 @@ using Prism.Commands;
 
 namespace TheDeptBook.ViewModels
 {
-    class AddDeptorsViewModel : BindableBase
+    public class AddDeptorsViewModel : BindableBase
     {
+        public AddDeptorsViewModel()
+        {
+
+        }
+
         public AddDeptorsViewModel(Deptor deptor)
         {
             CurrentDeptor = deptor;
@@ -47,6 +52,7 @@ namespace TheDeptBook.ViewModels
         {
             get
             {
+                CurrentDeptor.Date = DateTime.Now.ToString("dd/mm/yyyy");
                 return _saveBtnCommand ?? (_saveBtnCommand = new DelegateCommand(
                     SaveBtnCommand_Execute, SaveBtnCommand_CanExecute)
                     .ObservesProperty(() => CurrentDeptor.Name)

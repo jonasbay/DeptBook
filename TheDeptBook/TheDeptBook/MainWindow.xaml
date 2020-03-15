@@ -48,9 +48,10 @@
                   SelectedIndex="{Binding Path=CurrentIndex}"
                   HorizontalAlignment="Stretch"  
                   VerticalAlignment="Stretch" 
-                  Margin="20"
-                  >
-           <i:Interaction.Triggers>
+                  Margin="20" SelectionChanged="DGListDepts_SelectionChanged">
+            
+            
+            <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <i:InvokeCommandAction Command="{Binding AddDeptCommand}"/>
                 </i:EventTrigger>

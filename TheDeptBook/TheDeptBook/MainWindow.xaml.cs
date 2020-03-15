@@ -24,6 +24,10 @@ namespace TheDeptBook
         {
             InitializeComponent();
         }
-    }
 
+        private void DGListDepts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+    }
 }

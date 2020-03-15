@@ -24,6 +24,7 @@ using Microsoft.Win32;
 using Prism.Commands;
 using Prism.Mvvm;
 using Path = System.IO.Path;
+using TheDeptBook;
 using TheDeptBook.ViewModels;
 using TheDeptBook.Views;
 
@@ -44,7 +45,6 @@ namespace TheDeptBook
             CurrentDeptor = deptors[0];
         }
 
-
         #region Properties
 
         Deptor currentDeptor = null;
@@ -63,6 +63,7 @@ namespace TheDeptBook
             get { return deptors; }
             set { SetProperty(ref deptors, value); }
         }
+
         int currentIndex = -1;
         public int CurrentIndex
         {
@@ -72,8 +73,6 @@ namespace TheDeptBook
                 SetProperty(ref currentIndex, value);
             }
         }
-
-
 
         #endregion
 
@@ -118,16 +117,15 @@ namespace TheDeptBook
             {
                 return _addDeptCommand ?? (_addDeptCommand = new DelegateCommand(() =>
                 {
-                    var tempDeptor = new Deptor();
+                    var tempDeptor = CurrentDeptor.Clone();
                     var vm = new AddDeptViewModel(tempDeptor);
                     var dlg = new AddDept();
-                    dlg.ShowDialog();
-                    //dlg.DataContext = vm;
-                    //if (dlg.ShowDialog() == true)
-                    //{
-                    //    Deptors.Add(newDeptor);
-                    //    CurrentDeptor = newDeptor;
-                    //}
+                    dlg.DataContext = vm;
+                    if (dlg.ShowDialog() == true)
+                    {
+                        Deptors.Add(tempDeptor);
+                        CurrentDeptor = tempDeptor;
+                    }
                 }));
             }
         }
