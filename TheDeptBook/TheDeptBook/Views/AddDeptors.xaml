@@ -46,11 +46,13 @@
             <Button Grid.Column="0" 
                     x:Name="Save"
                     Content="Save"
+                    Click="BtnSave_Click"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
                     Command="{Binding Path=SaveBtnCommand}"/>
             <Button Grid.Column="1"
                     x:Name="Cancel"
                     Content="Cancel"
+                    Click="BtnCancel_Click"
                     Style="{StaticResource ResourceKey=ButtonStyle}"/>
         </Grid>
     </Grid>

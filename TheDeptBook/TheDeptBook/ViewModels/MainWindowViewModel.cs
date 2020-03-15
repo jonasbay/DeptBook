@@ -63,6 +63,7 @@ namespace TheDeptBook
             get { return deptors; }
             set { SetProperty(ref deptors, value); }
         }
+
         int currentIndex = -1;
         public int CurrentIndex
         {
