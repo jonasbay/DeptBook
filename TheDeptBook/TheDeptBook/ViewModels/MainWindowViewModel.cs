@@ -39,7 +39,7 @@ namespace TheDeptBook
         {
             deptors = new ObservableCollection<Deptor>
             {
-                new Deptor("Jonas Bay", 124.56, "20-5-2002"),
+                new Deptor("Jonas Bay", -152, "20-5-2002"),
                 new Deptor("Alexander Smith", 194.51, "17-01-2018")
             };
             CurrentDeptor = deptors[0];
@@ -87,7 +87,6 @@ namespace TheDeptBook
                     var newDeptor = new Deptor();
                     var vm = new AddDeptorsViewModel(newDeptor);
                     var dlg = new AddDeptors();
-                    dlg.ShowDialog();
                     dlg.DataContext = vm;
                     if (dlg.ShowDialog() == true)
                     {
@@ -120,6 +119,5 @@ namespace TheDeptBook
             }
         }
         #endregion
-
     }
 }

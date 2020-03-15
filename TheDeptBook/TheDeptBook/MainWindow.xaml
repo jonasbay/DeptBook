@@ -14,7 +14,13 @@
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Name="MainMenu">
+            <MenuItem Header="_File">
+                <MenuItem Header="E_xit" Command="{Binding ClosingProgram}"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="60" />
@@ -27,7 +33,7 @@
                   SelectedIndex="{Binding Path=CurrentIndex}"
                   HorizontalAlignment="Stretch"  
                   VerticalAlignment="Stretch" 
-                  Margin="20">
+                  Margin="20" SelectionChanged="DGListDepts_SelectionChanged">
             
             
             <i:Interaction.Triggers>
@@ -37,12 +43,12 @@
             </i:Interaction.Triggers>
 
         </DataGrid>
-        <Button Name="btnAddDeptor" ToolTip="Add new deptor to the list" Content="Add" 
+            <Button Name="btnAddDeptor" ToolTip="Add new deptor to the list" Content="Add" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 MinWidth="75" 
                 Grid.Row="1"
                 Command="{Binding Path=AddDeptorCommand}"
                 Style="{StaticResource ResourceKey=ButtonStyle}"/>
-        
-    </Grid>
+        </Grid>
+    </DockPanel>
 </Window>
