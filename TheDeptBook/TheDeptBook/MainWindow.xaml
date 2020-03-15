@@ -28,6 +28,8 @@
                   HorizontalAlignment="Stretch"  
                   VerticalAlignment="Stretch" 
                   Margin="20">
+            
+            
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <i:InvokeCommandAction Command="{Binding AddDeptCommand}"/>
@@ -39,7 +41,8 @@
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 MinWidth="75" 
                 Grid.Row="1"
-                Command="{Binding Path=AddDeptorCommand}"/>
+                Command="{Binding Path=AddDeptorCommand}"
+                Style="{StaticResource ResourceKey=ButtonStyle}"/>
         
     </Grid>
 </Window>
