@@ -9,8 +9,8 @@
         xmlns:i1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
         xmlns:viewModels="clr-namespace:TheDeptBook.ViewModels"
-        Title="The Debt Book" Height="500" Width="500"
-        MinHeight="300" MinWidth="200">
+        Title="The Debt Book" Height="500" Width="600"
+        MinHeight="300" MinWidth="450">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
@@ -52,7 +52,13 @@
                   Margin="20" SelectionChanged="DGListDepts_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Width="236" Binding="{Binding Path=Name}"/>
-                    <DataGridTextColumn Header="Debt Value (DKK)" Width="120" Binding="{Binding Path=Sum}"/>
+                    <DataGridTextColumn Header="Debt Value (DKK)" Width="120" Binding="{Binding Path=Sum}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style  TargetType="TextBlock">
+                                <Setter Property="Background" Value="{Binding Path=Sum, Converter={StaticResource ValueToColorConverter}}"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="Date" Width="80" Binding="{Binding Path=Date}"/>
                 </DataGrid.Columns>
 
