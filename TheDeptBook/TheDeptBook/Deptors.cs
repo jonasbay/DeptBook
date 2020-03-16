@@ -13,7 +13,7 @@ namespace TheDeptBook
     public class Deptor : BindableBase
     {
         string name;
-        double sum;
+        double sum = 0;
         string date;
         double newValue;
 
