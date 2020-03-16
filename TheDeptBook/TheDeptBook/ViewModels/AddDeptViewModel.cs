@@ -51,7 +51,6 @@ namespace TheDeptBook.ViewModels
             CurrentDeptor.Sum += currentDeptor.newDeptValue;    // Enten her eller i addDeptValue
             CurrentDeptor.Date = DateTime.Now.ToString("dd/MM/yyyy");
             currentDeptor.AddDeptToPerson(CurrentDeptor.Date, currentDeptor.newDeptValue);
-
         }
     }
 }

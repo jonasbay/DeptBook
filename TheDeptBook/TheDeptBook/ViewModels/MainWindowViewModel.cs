@@ -121,11 +121,12 @@ namespace TheDeptBook
                     var vm = new AddDeptViewModel(tempDeptor);
                     var dlg = new AddDept();
                     dlg.DataContext = vm;
-                    if (dlg.ShowDialog() == true)
-                    {
-                        Deptors.Add(tempDeptor);
+                    dlg.ShowDialog();
+                    //if (dlg.ShowDialog() == true)
+                    //{
+                        Dept.Add(tempDeptor);
                         CurrentDeptor = tempDeptor;
-                    }
+                    //}
                 }));
             }
         }
