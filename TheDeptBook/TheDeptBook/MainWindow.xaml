@@ -51,7 +51,7 @@
                   VerticalAlignment="Stretch" 
                   Margin="20" SelectionChanged="DGListDepts_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Width="245" Binding="{Binding Path=Name}"/>
+                    <DataGridTextColumn Header="Name" Width="236" Binding="{Binding Path=Name}"/>
                     <DataGridTextColumn Header="Debt Value (DKK)" Width="120" Binding="{Binding Path=Sum}"/>
                     <DataGridTextColumn Header="Date" Width="80" Binding="{Binding Path=Date}"/>
                 </DataGrid.Columns>

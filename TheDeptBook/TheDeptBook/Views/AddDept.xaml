@@ -34,7 +34,7 @@
                 </Grid>
 
                 <Grid Column="1">
-                    <TextBlock Name="SumBox" Text="{Binding Path=CurrentDeptor.Name}" FontSize="15" Padding="5"/>
+                    <TextBlock Name="NameBox" Text="{Binding Path=CurrentDeptor.Name}" FontSize="15" Padding="5"/>
                 </Grid>
             </Grid>
 
@@ -75,7 +75,7 @@
                             <Label Content="Sum:" FontSize="15" HorizontalAlignment="Right" />
                         </Grid>
                         <Grid Column="1">
-                            <TextBlock Name="NameBox" Text="{Binding Path=CurrentDeptor.Sum}" FontSize="15" Padding="5"/>
+                            <TextBlock Name="SumBox" Text="{Binding Path=CurrentDeptor.Sum}" FontSize="15" Padding="5" />
                         </Grid>
                     </Grid>
                     <Grid Grid.Row="1">
