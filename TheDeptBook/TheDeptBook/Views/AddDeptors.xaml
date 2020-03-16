@@ -35,7 +35,7 @@
             <TextBox Grid.Column="1"
                      x:Name="AddDeptorInitValueTextBox"
                      Margin="0,0,30,0"
-                     Text="{Binding Path=CurrentDeptor.InitValue}"
+                     Text="{Binding Path=CurrentDeptor.Sum}"
                      VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="2">

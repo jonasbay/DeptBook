@@ -84,7 +84,7 @@ namespace TheDeptBook
             {
                 return _addDeptorCommand ?? (_addDeptorCommand = new DelegateCommand(() =>
                 {
-                    var newDeptor = new Deptor();
+                    var newDeptor = new Deptor("", 0, DateTime.Now.ToString("dd/MM/yyyy"));
                     var vm = new AddDeptorsViewModel(newDeptor);
                     var dlg = new AddDeptors();
                     dlg.DataContext = vm;

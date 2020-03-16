@@ -13,7 +13,7 @@ namespace TheDeptBook
     public class Deptor : BindableBase
     {
         string name;
-        double sum;
+        double sum = 0;
         string date;
         double newValue;
 
@@ -50,12 +50,6 @@ namespace TheDeptBook
         {
             get { return name; }
             set { SetProperty(ref name, value); }
-        }
-
-        public double InitValue
-        {
-            get { return sum; }
-            set { SetProperty(ref sum, value); }
         }
 
         public double newDeptValue
