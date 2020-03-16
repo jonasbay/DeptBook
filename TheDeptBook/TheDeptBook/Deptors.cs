@@ -52,12 +52,6 @@ namespace TheDeptBook
             set { SetProperty(ref name, value); }
         }
 
-        public double InitValue
-        {
-            get { return sum; }
-            set { SetProperty(ref sum, value); }
-        }
-
         public double newDeptValue
         {
             get { return newValue; }

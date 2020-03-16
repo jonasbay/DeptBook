@@ -40,7 +40,7 @@ namespace TheDeptBook.ViewModels
                 bool isValid = true;
                 if (string.IsNullOrWhiteSpace(CurrentDeptor.Name))
                     isValid = false;
-                if (double.IsNaN(CurrentDeptor.InitValue))
+                if (double.IsNaN(CurrentDeptor.Sum))
                     isValid = false;
                 return isValid;
             }
@@ -56,7 +56,7 @@ namespace TheDeptBook.ViewModels
                 return _saveBtnCommand ?? (_saveBtnCommand = new DelegateCommand(
                     SaveBtnCommand_Execute, SaveBtnCommand_CanExecute)
                     .ObservesProperty(() => CurrentDeptor.Name)
-                    .ObservesProperty(() => CurrentDeptor.InitValue));
+                    .ObservesProperty(() => CurrentDeptor.Sum));
             }
         }
 
