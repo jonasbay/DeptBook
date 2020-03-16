@@ -44,19 +44,19 @@
             </DataGridTemplateColumn.CellTemplate>
         </DataGridTemplateColumn>-->
 
-        <!--Datagrid style--><!--
-        <DataGrid x:Key="deptorsGridListTemplate">
+        <!--Datagrid style-->
+        <DataGrid x:Key="negativeStyle">
             <DataGrid.Columns>
                 <DataGridTextColumn>
                     <DataGridTextColumn.ElementStyle>
                         <Style  TargetType="TextBlock">
-                            <Setter Property="Padding" Value="30,2,100,2"/>
+                            <Setter Property="Background" Value="{Binding Path=InitValue, Converter={StaticResource ValueToColorConverter}}"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        --><!--negative value--><!--
+        <!--negative value--><!--
         <DataGrid x:Key="NegativeStyle" >
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">

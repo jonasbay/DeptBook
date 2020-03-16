@@ -49,13 +49,14 @@
                   SelectedIndex="{Binding Path=CurrentIndex}"
                   HorizontalAlignment="Stretch"  
                   VerticalAlignment="Stretch" 
-                  Margin="20" SelectionChanged="DGListDepts_SelectionChanged">
+                  Margin="20" SelectionChanged="DGListDepts_SelectionChanged"
+                  IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Width="236" Binding="{Binding Path=Name}"/>
                     <DataGridTextColumn Header="Debt Value (DKK)" Width="120" Binding="{Binding Path=Sum}">
                         <DataGridTextColumn.ElementStyle>
                             <Style  TargetType="TextBlock">
-                                <Setter Property="Background" Value="{Binding Path=Sum, Converter={StaticResource ValueToColorConverter}}"/>
+                                <Setter Property="Foreground" Value="{Binding Path=Sum, Converter={StaticResource ValueToColorConverter}}"/>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
