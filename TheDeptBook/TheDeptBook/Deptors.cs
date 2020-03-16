@@ -32,7 +32,7 @@ namespace TheDeptBook
         public void AddDeptToPerson(string dDate, double dValue)
         {
             ListOfAllDepts.Add(new Dept(dDate, dValue));
-            //sum += dValue; // Skal udkommenteres, hvis den er i deletegateCommand for ADD
+            Sum += dValue; // Skal udkommenteres, hvis den er i deletegateCommand for ADD
         }
 
         public Deptor Clone()

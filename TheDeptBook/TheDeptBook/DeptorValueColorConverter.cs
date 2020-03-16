@@ -16,7 +16,7 @@ namespace TheDeptBook
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            int input = (int)value;
+            double input = (double)value;
 
             if (input < 0)
                 return new SolidColorBrush(Colors.Red);

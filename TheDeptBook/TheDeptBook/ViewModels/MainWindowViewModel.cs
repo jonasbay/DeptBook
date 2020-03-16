@@ -117,15 +117,10 @@ namespace TheDeptBook
             {
                 return _addDeptCommand ?? (_addDeptCommand = new DelegateCommand(() =>
                 {
-                    var tempDeptor = CurrentDeptor.Clone();
-                    var vm = new AddDeptViewModel(tempDeptor);
+                    var vm = new AddDeptViewModel(CurrentDeptor);
                     var dlg = new AddDept();
                     dlg.DataContext = vm;
-                    if (dlg.ShowDialog() == true)
-                    {
-                        Deptors.Add(tempDeptor);
-                        CurrentDeptor = tempDeptor;
-                    }
+                    dlg.ShowDialog();
                 }));
             }
         }

@@ -48,7 +48,7 @@ namespace TheDeptBook.ViewModels
 
         private void addValue_Execute()
         {
-            CurrentDeptor.Sum += currentDeptor.newDeptValue;    // Enten her eller i addDeptValue
+            //CurrentDeptor.Sum += currentDeptor.newDeptValue;    // Enten her eller i addDeptValue
             CurrentDeptor.Date = DateTime.Now.ToString("dd/MM/yyyy");
             currentDeptor.AddDeptToPerson(CurrentDeptor.Date, currentDeptor.newDeptValue);
 
