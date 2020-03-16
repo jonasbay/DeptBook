@@ -111,6 +111,7 @@ namespace TheDeptBook
 
         #region AddDeptCommand
         ICommand _addDeptCommand;
+
         public ICommand AddDeptCommand
         {
             get
@@ -121,9 +122,12 @@ namespace TheDeptBook
                     var dlg = new AddDept();
                     dlg.DataContext = vm;
                     dlg.ShowDialog();
-                }));
+                },
+                ()=> { return CurrentIndex >= 0; }
+                ).ObservesProperty(()=>CurrentIndex));
             }
         }
+
         #endregion
 
         #region CloseProgramCommand
@@ -138,37 +142,6 @@ namespace TheDeptBook
                 }));
             }
         }
-        #endregion
-
-        #region ClosingCommand
-        /*ICommand _closingCommand;
-        public ICommand ClosingCommand
-        {
-            get
-            {
-                return _closingCommand ?? (_closingCommand = new
-                           DelegateCommand<CancelEventArgs>(ClosingCommand_Execute));
-            }
-        }
-
-        bool regret = true;
-        private void ClosingCommand_Execute(CancelEventArgs arg)
-        {
-            if (regret)
-                arg.Cancel = UserRegrets();
-        }
-
-        private bool UserRegrets()
-        {
-            regret = false;
-            MessageBoxResult res = MessageBox.Show("Are you sure you want to exit?",
-                "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
-            if (res == MessageBoxResult.No)
-            {
-                regret = true;
-            }
-            return regret;
-        }*/
         #endregion
 
         #region DeleteDeptorCommand
