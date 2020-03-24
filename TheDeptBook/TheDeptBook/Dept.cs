@@ -12,6 +12,9 @@ namespace TheDeptBook
         private string date_;
         private double value_;
 
+        public Dept()
+        { }
+
         public Dept(string dDate, double dValue)
         {
             date_ = dDate;

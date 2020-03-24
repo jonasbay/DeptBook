@@ -18,7 +18,8 @@ namespace TheDeptBook
         double newValue;
 
 
-        public Deptor() {}
+        public Deptor()
+        { }
 
         public Deptor(string dName, double dInitValue, string dDate)
         {

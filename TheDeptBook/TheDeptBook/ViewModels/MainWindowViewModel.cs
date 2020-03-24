@@ -32,16 +32,19 @@ namespace TheDeptBook
 {
     public partial class MainWindowViewModel : BindableBase
     {
-
+        private string filename = "";
         ObservableCollection<Deptor> deptors;
 
         public MainWindowViewModel()
         {
-            deptors = new ObservableCollection<Deptor>
-            {
-                new Deptor("Jonas Bay", -152, "20-05-2002"),
-                new Deptor("Alexander Smith", 194.51, "17-01-2018")
-            };
+            deptors = new ObservableCollection<Deptor>();
+            //{
+            //    new Deptor("Jonas Bay", -152, "20-05-2002"),
+            //    new Deptor("Alexander Smith", 194.51, "17-01-2018")
+            //};
+            deptors.Add(new Deptor("Jonas Bay", -152, "20-05-2002"));
+            deptors.Add(new Deptor("Alexander Smith", 194.51, "17-01-2018"));
+
             CurrentDeptor = deptors[0];
         }
 
@@ -169,5 +172,110 @@ namespace TheDeptBook
                 return false;
         }
         #endregion
+
+
+        private ICommand _openFileCommand;
+        public ICommand OpenFileCommand
+        {
+            get
+            {
+                return _openFileCommand ?? (_openFileCommand = new DelegateCommand<string>(openFileCommand_Execute));
+            }
+        }
+
+        public void openFileCommand_Execute(string FileNameTyped)
+        {
+            if (FileNameTyped == "")
+            {
+
+                MessageBox.Show("You must enter a file name in the File Name textbox!", "Unable to save file",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                filename = FileNameTyped;
+                var tempDeptors = new ObservableCollection<Deptor>();
+
+                XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Deptor>));
+
+                try
+                {
+                    TextReader reader = new StreamReader(filename);
+                    tempDeptors = (ObservableCollection<Deptor>)serializer.Deserialize(reader);
+                    reader.Close();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Unable to open file", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                Deptors = tempDeptors;
+            }
+        }
+
+        private ICommand _saveAsCommand;
+        public ICommand SaveAsCommand
+        {
+            get { return _saveAsCommand ?? (_saveAsCommand = new DelegateCommand<string>(SaveAsCommand_Execute)); }
+        }
+
+        private void SaveAsCommand_Execute(string thisIsTheFileName)
+        {
+
+            if (thisIsTheFileName == "")
+            {
+                MessageBox.Show("Enter a file name please. Unable to save file!", "Unable to save file", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                filename = thisIsTheFileName;
+                saveFileCommand_Execute();
+            }
+        }
+
+        private ICommand _saveCommand;
+        public ICommand SaveCommand
+        {
+            get
+            {
+                return _saveCommand ?? (_saveCommand =
+                           new DelegateCommand(saveFileCommand_Execute, saveFileCommand_CanExecute)
+                               .ObservesProperty(() => Deptors.Count));
+            }
+        }
+
+        public void saveFileCommand_Execute()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Deptor>));
+            TextWriter writer = new StreamWriter(filename);
+            serializer.Serialize(writer, Deptors);
+            writer.Close();
+        }
+
+        public bool saveFileCommand_CanExecute()
+        {
+            return (filename != "") && (Deptors.Count > 0);
+        }
+
+        private ICommand _newFileCommand;
+
+        public ICommand NewFileCommand
+        {
+            get
+            {
+                return _newFileCommand ?? (_newFileCommand = new DelegateCommand(newFileCommand_Execute));
+            }
+        }
+
+        public void newFileCommand_Execute()
+        {
+            MessageBoxResult res = MessageBox.Show("Any unsaved data will be lost. Are you sure you w ant to make a new file?", "Warning",
+                MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (res == MessageBoxResult.Yes)
+            {
+                Deptors.Clear();
+                filename = "";
+            }
+        }
     }
 }

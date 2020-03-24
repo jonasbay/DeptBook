@@ -23,8 +23,12 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top" Name="MainMenu">
             <MenuItem Header="_File">
+                <MenuItem Header="_New File" Command="{Binding NewFileCommand}"/>
+                <MenuItem Header="_Open File" Command="{Binding OpenFileCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"/>
+                <MenuItem Header="_Save File" Command="{Binding SaveAsCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"/>
                 <MenuItem Header="E_xit" Command="{Binding CloseProgramCommand}"
                           InputGestureText="ctrl+shift+X"/>
+                
             </MenuItem>
             <MenuItem Header="_Debtor">
                 <MenuItem Header="_Add New Debtor" Command="{Binding AddDeptorCommand}"
@@ -35,6 +39,10 @@
                           InputGestureText="ctrl+D"/>
             </MenuItem>
         </Menu>
+        <ToolBar DockPanel.Dock="Top">
+            <Label Content="File _Name:"/>
+            <TextBox Name="tbxFileName" FontSize="14" FontWeight="Medium" VerticalAlignment="Center" MinWidth="150"/>
+        </ToolBar>
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
