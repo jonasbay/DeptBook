@@ -42,13 +42,12 @@ namespace TheDeptBook.ViewModels
             {
                 return _addValueCommand ?? (_addValueCommand = new DelegateCommand(addValue_Execute)
                            .ObservesProperty(() => CurrentDeptor.newDeptValue)
-                           .ObservesProperty(() => CurrentDeptor.Sum)); // Burde denne ikke holde øje om noget bliver ændret og lave sum om?
+                           .ObservesProperty(() => CurrentDeptor.Sum)); 
             }
         }
 
         private void addValue_Execute()
         {
-            //CurrentDeptor.Sum += currentDeptor.newDeptValue;    // Enten her eller i addDeptValue
             CurrentDeptor.Date = DateTime.Now.ToString("dd/MM/yyyy");
             currentDeptor.AddDeptToPerson(CurrentDeptor.Date, currentDeptor.newDeptValue);
         }
