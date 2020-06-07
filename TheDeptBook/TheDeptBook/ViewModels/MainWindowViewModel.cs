@@ -173,7 +173,7 @@ namespace TheDeptBook
         }
         #endregion
 
-
+        #region OpenFileCommand
         private ICommand _openFileCommand;
         public ICommand OpenFileCommand
         {
@@ -212,7 +212,9 @@ namespace TheDeptBook
                 Deptors = tempDeptors;
             }
         }
+        #endregion
 
+        #region SaveASCommand
         private ICommand _saveAsCommand;
         public ICommand SaveAsCommand
         {
@@ -233,6 +235,9 @@ namespace TheDeptBook
             }
         }
 
+        #endregion
+
+        #region SaveCommand
         private ICommand _saveCommand;
         public ICommand SaveCommand
         {
@@ -256,9 +261,10 @@ namespace TheDeptBook
         {
             return (filename != "") && (Deptors.Count > 0);
         }
+        #endregion
 
+        #region NewFileCommand
         private ICommand _newFileCommand;
-
         public ICommand NewFileCommand
         {
             get
@@ -277,5 +283,6 @@ namespace TheDeptBook
                 filename = "";
             }
         }
+        #endregion
     }
 }

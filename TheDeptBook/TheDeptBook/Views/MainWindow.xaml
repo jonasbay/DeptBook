@@ -16,16 +16,26 @@
     </Window.DataContext>
     <Window.InputBindings>
         <KeyBinding Modifiers="Control+Shift" Key="X" Command="{Binding CloseProgramCommand}"/>
+        <KeyBinding Modifiers="Control+Shift" Key="O" Command="{Binding OpenFileCommand}"/>
+        <KeyBinding Modifiers="Control+Shift" Key="N" Command="{Binding NewFileCommand}"/>
+        <KeyBinding Modifiers="Control+Shift" Key="S" Command="{Binding SaveCommand}"/>
+        <KeyBinding Modifiers="Control+Shift" Key="A" Command="{Binding SaveAsCommand}"/>
         <KeyBinding Modifiers="Control" Key="E" Command="{Binding AddDeptCommand}"/>
         <KeyBinding Modifiers="Control" Key="A" Command="{Binding AddDeptorCommand}" />
         <KeyBinding Modifiers="Control" Key="D" Command="{Binding DeleteDeptorCommand}" />
+        
     </Window.InputBindings>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Name="MainMenu"> <!--s-->
             <MenuItem Header="_File">
-                <MenuItem Header="_New File" Command="{Binding NewFileCommand}"/>
-                <MenuItem Header="_Open File" Command="{Binding OpenFileCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"/>
-                <MenuItem Header="_Save File" Command="{Binding SaveAsCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"/>
+                <MenuItem Header="_New File" Command="{Binding NewFileCommand}"
+                          InputGestureText="ctrl+shift+N"/>
+                <MenuItem Header="_Open File" Command="{Binding OpenFileCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"
+                          InputGestureText="ctrl+shift+O"/>
+                <MenuItem Header="_Save File As" Command="{Binding SaveAsCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"
+                          InputGestureText="ctrl+shift+A"/>
+                <MenuItem Header="_Save File" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"
+                          InputGestureText="ctrl+shift+S"/>
                 <MenuItem Header="E_xit" Command="{Binding CloseProgramCommand}"
                           InputGestureText="ctrl+shift+X"/>
                 
