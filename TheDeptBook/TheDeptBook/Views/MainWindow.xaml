@@ -21,7 +21,7 @@
         <KeyBinding Modifiers="Control" Key="D" Command="{Binding DeleteDeptorCommand}" />
     </Window.InputBindings>
     <DockPanel>
-        <Menu DockPanel.Dock="Top" Name="MainMenu">
+        <Menu DockPanel.Dock="Top" Name="MainMenu"> <!--s-->
             <MenuItem Header="_File">
                 <MenuItem Header="_New File" Command="{Binding NewFileCommand}"/>
                 <MenuItem Header="_Open File" Command="{Binding OpenFileCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"/>
